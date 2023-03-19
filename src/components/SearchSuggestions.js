@@ -7,7 +7,11 @@ const SearchSuggestions = ({ query, setSearchQuery, setShow}) => {
     const [suggestions, setSuggestions] = useState([]);
     const dispatch = useDispatch();
     useEffect(() => {
-        if (query.length > 0) getSuggestions();
+        const timer = setTimeout(getSuggestions, 200);
+
+        return(()=>{
+            clearTimeout(timer);
+        });
         // eslint-disable-next-line
     }, [query]);
     const getSuggestions = async () => {
