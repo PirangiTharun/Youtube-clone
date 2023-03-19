@@ -8,7 +8,6 @@ const SearchSuggestions = ({ query, setSearchQuery, setShow}) => {
     const dispatch = useDispatch();
     useEffect(() => {
         const timer = setTimeout(getSuggestions, 200);
-
         return(()=>{
             clearTimeout(timer);
         });
